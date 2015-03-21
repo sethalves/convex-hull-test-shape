@@ -23,9 +23,19 @@ hull-test-b.stl: hull-test-b.scad
 hull-test-b.obj: hull-test-b.stl
 	- ivcon $^ $@
 
+hull-test-c.stl: hull-test-c.scad
+	openscad -o $@ $^
 
-hull-test-collision-object.obj: hull-test-a.obj hull-test-b.obj
+hull-test-c.obj: hull-test-c.stl
+	- ivcon $^ $@
+
+
+hull-test-collision-object.obj: hull-test-a.obj hull-test-b.obj hull-test-c.obj
 	./obj-append.scm $^ > $@
+
+
+dist: all
+	scp hull-test-collision-object.obj hull-test-model.obj headache:public_html/hifi/
 
 
 libs:
@@ -37,6 +47,7 @@ clean:
 	rm -f hull-test-model.obj hull-test-model.stl
 	rm -f hull-test-a.obj hull-test-a.stl
 	rm -f hull-test-b.obj hull-test-b.stl
+	rm -f hull-test-c.obj hull-test-c.stl
 	rm -f hull-test-collision-object.obj
 
 very-clean: clean
