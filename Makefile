@@ -31,7 +31,8 @@ hull-test-c.obj: hull-test-c.stl
 
 
 hull-test-collision-object.obj: hull-test-a.obj hull-test-b.obj hull-test-c.obj
-	./obj-append.scm $^ > $@
+	# see https://github.com/sethalves/wavefront-obj-tools
+	wavefront-obj-tool -c -n $^ > $@
 
 
 dist: all
