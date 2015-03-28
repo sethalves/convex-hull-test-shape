@@ -50,6 +50,3 @@ clean:
 	rm -f hull-test-b.obj hull-test-b.stl
 	rm -f hull-test-c.obj hull-test-c.stl
 	rm -f hull-test-collision-object.obj
-
-very-clean: clean
-	rm -rf seth snow srfi
