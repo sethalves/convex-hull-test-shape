@@ -39,10 +39,6 @@ dist: all
 	scp hull-test-collision-object.obj hull-test-model.obj headache:public_html/hifi/
 
 
-libs:
-	snow2 install '(seth obj-model)'
-
-
 clean:
 	rm -f *~
 	rm -f hull-test-model.obj hull-test-model.stl
